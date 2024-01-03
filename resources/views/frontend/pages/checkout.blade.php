@@ -443,7 +443,7 @@
                     <div class="single-service">
                         <i class="ti-rocket"></i>
                         <h4>Free shiping</h4>
-                        <p>Orders over KSH 100000</p>
+                        <p>Orders over Ksh 100,000</p>
                     </div>
                     <!-- End Single Service -->
                 </div>
