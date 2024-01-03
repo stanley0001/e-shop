@@ -442,7 +442,7 @@
                     <!-- Start Single Service -->
                     <div class="single-service">
                         <i class="ti-rocket"></i>
-                        <h4>Free shiping</h4>
+                        <h4>Free delivery</h4>
                         <p>Orders over Ksh 100,000</p>
                     </div>
                     <!-- End Single Service -->
