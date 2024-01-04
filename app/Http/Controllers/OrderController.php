@@ -290,11 +290,11 @@ class OrderController extends Controller
         $data["file_name"] = $file_name;
         $data["title"] = "From Jowatex.com";
         $data["body"] = "Here is your requested Invoce for ".$order->first_name;
-        Mail::send('emails.myTestMail', $data, function($message)use($data, $pdf) {
-            $message->to($data["email"], $data["email"])
-                    ->subject("INVOCE GENERATION")
-                    ->attachData($pdf->output(), $data["file_name"]);
-        });
+        // Mail::send('emails.myTestMail', $data, function($message)use($data, $pdf) {
+        //     $message->to($data["email"], $data["email"])
+        //             ->subject("INVOCE GENERATION")
+        //             ->attachData($pdf->output(), $data["file_name"]);
+        // });
         Mail::raw($data["body"], function ($message)use($data, $pdf) {
             $message->to($data["email"], $data["email"])
                     ->subject("INVOCE GENERATION")
