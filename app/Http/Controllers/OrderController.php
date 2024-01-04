@@ -283,7 +283,18 @@ class OrderController extends Controller
         // return $file_name;
         $pdf=PDF::loadview('backend.order.pdf',compact('order'));
         // return $pdf->download($file_name);
-        return $pdf->stream($file_name, array('Attachment'=>0));              
+        // $mail_result=Mail::to("jowatex04@gmail.com")->send(new OrderMail($id));
+        $data["email"] = "mungaistanley001@gmail.com";
+        $data["title"] = "From Jowatex.com";
+        $data["body"] = "Here is your requested Invoce for ".$order->first_name;
+        Mail::send('emails.myTestMail', $data, function($message)use($data, $pdf) {
+            $message->to($data["email"], $data["email"])
+                    ->subject($data["INVOCE GENERATION"])
+                    ->attachData($pdf->output(), $file_name);
+        });
+        return redirect()->back()->with('message', 'invoice sent to '.$data["email"]);
+
+        // return $pdf->stream($file_name, array('Attachment'=>0));              
     }
     // Income chart
     public function incomeChart(Request $request){
