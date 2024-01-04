@@ -281,7 +281,7 @@ class OrderController extends Controller
         // return $order;
         $file_name=$order->order_number.'-'.$order->first_name.'.pdf';
         // return $file_name;
-        $pdf=PDF::loadview('backend.order.pdf',compact('order'));
+        // $pdf=PDF::loadview('backend.order.pdf',compact('order'));
         return $pdf->download($file_name);
     }
     // Income chart
