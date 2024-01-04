@@ -291,7 +291,7 @@ class OrderController extends Controller
         $data["body"] = "Here is your requested Invoce for ".$order->first_name;
         Mail::send('emails.myTestMail', $data, function($message)use($data, $pdf) {
             $message->to($data["email"], $data["email"])
-                    ->subject($data["INVOCE GENERATION"])
+                    ->subject("INVOCE GENERATION")
                     ->attachData($pdf->output(), $file_name);
         });
         return redirect()->back()->with('message', 'invoice sent to '.$data["email"]);
