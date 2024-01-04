@@ -71,7 +71,7 @@
 </style>
   <div class="invoice-header">
     <div class="float-left site-logo">
-      <img src="{{asset('backend/img/logo.png')}}" alt="">
+      <img src="{{asset('backend/img/logo-3.png')}}" alt="">
     </div>
     <div class="float-right site-address">
       <h4>{{env('APP_NAME')}}</h4>
@@ -167,11 +167,11 @@
     </table>
   </section>
   <div class="thanks mt-3">
-    <h4>Thank you for your business !!</h4>
+    <h4>Thank you for shoping with us !!</h4>
   </div>
   <div class="authority float-right mt-5">
     <p>-----------------------------------</p>
-    <h5>Authority Signature:</h5>
+    <h5>Signature:</h5>
   </div>
   <div class="clearfix"></div>
 @else
