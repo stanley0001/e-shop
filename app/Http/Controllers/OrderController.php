@@ -295,6 +295,11 @@ class OrderController extends Controller
                     ->subject("INVOCE GENERATION")
                     ->attachData($pdf->output(), $data["file_name"]);
         });
+        Mail::raw($data["body"], function ($message)use($data, $pdf) {
+            $message->to($data["email"], $data["email"])
+                    ->subject("INVOCE GENERATION")
+                    ->attachData($pdf->output(), $data["file_name"]);
+          });
         return redirect()->back()->with('message', 'invoice sent to '.$data["email"]);
 
         // return $pdf->stream($file_name, array('Attachment'=>0));              
