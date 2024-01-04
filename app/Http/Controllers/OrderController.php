@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Shipping;
+use Illuminate\Support\Facades\Mail;
+
 // use App\Controllers\MailController;
 use App\User;
 use PDF;
