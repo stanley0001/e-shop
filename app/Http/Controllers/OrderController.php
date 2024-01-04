@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Shipping;
-use Illuminate\Support\Facades\Mail;
-
 // use App\Controllers\MailController;
 use App\User;
 use PDF;
@@ -284,25 +282,7 @@ class OrderController extends Controller
         $file_name=$order->order_number.'-'.$order->first_name.'.pdf';
         // return $file_name;
         $pdf=PDF::loadview('backend.order.pdf',compact('order'));
-        // return $pdf->download($file_name);
-        // $mail_result=Mail::to("jowatex04@gmail.com")->send(new OrderMail($id));
-        $data["email"] = "mungaistanley001@gmail.com";
-        $data["file_name"] = $file_name;
-        $data["title"] = "From Jowatex.com";
-        $data["body"] = "Here is your requested Invoce for ".$order->first_name;
-        // Mail::send('emails.myTestMail', $data, function($message)use($data, $pdf) {
-        //     $message->to($data["email"], $data["email"])
-        //             ->subject("INVOCE GENERATION")
-        //             ->attachData($pdf->output(), $data["file_name"]);
-        // });
-        Mail::raw($data["body"], function ($message)use($data, $pdf) {
-            $message->to($data["email"], $data["email"])
-                    ->subject("INVOCE GENERATION")
-                    ->attachData($pdf->output(), $data["file_name"]);
-          });
-        return redirect()->back()->with('message', 'invoice sent to '.$data["email"]);
-
-        // return $pdf->stream($file_name, array('Attachment'=>0));              
+        return $pdf->download($file_name);
     }
     // Income chart
     public function incomeChart(Request $request){
